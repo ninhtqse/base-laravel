@@ -1,0 +1,92 @@
+FORMAT: 1A
+
+# TÀI LIỆU MÔ TẢ API AMELA CRM
+
+*Phiên bản tài liệu v1.0*
+
+## Authentication
+
++ Api sử dụng cơ chế xác thực Json Web Token (JWT)
++ các thông tin xác thực bao gồm các chuỗi `access token`, `refresh token` và `thời gian sống`
++ Tất cả các yêu cầu cần xác thực gửi lên server sẽ phải truyền lên `access token` trong `Authorization header`
+
+**Example Header**
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNnZoQW8zRkc3dDEiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE0NzA1OTg5NzIsImV4cCI6MTQ3MDY4NTM3Mn0.ltA9zZmJKszBJuuV7pTWtY7LzLXrRUfebJDhy_jGMeM
+```
+## Header
+
+Các Header sử dụng trong api:
+
++ Accept: application/json
++ Content-Type: application/json
+
+## Eager loading, Pagination, Sorting, Filtering
+
+Api sử dụng thư viện [Bruno](https://github.com/ninhtqse/bruno) để thực hiện các thao tác trên
+
++ Thêm tham số `fields` chứa danh sách các trường cần lấy dữ liệu, nếu không truyền lên mặc định sẽ trả về tất cả các trường.
+    + VD: `fields[]=code&fields[]=name`
++ Thêm tham số `options` chứa các filter tùy chọn.
+    + VD: `templates?options[raw_file]=1` trả về thêm raw file trong mẫu hóa đơn
+
+## Status Codes
+
+    Mặc định, tất cả các response trả về sẽ có HTTP code là `200`, trạng thái thành công hoặc lỗi sẽ trả về trong body, dưới đây là danh sách các status code trả về:
+### Success
+
+
++ `AWS001` - Thành công
++ `AWS002` - Lấy dữ liệu thành công
++ `AWS003` - Cập nhật thành công
++ `AWS004` - Lấy dữ liệu 1 bản ghi thành công
++ `AWS005` - Thêm mới thành công
++ `AWS006` - Xóa thành công
+
+**Example**
+
+````js
+{
+    "status": "success",
+    "code": "AWS001",
+    "message": "Thành công"
+}
+````
+###  Errors
+
++ `AWE001` Method Not Allowed
++ `AWE002` No Endpoint
++ `AWE003` Lỗi cập nhật CSDL
++ `AWE004` Dữ liệu đầu vào không hợp lệ
++ `AWE005` Thông tin xác thực không chính xác
++ `AWE006` Thông tin Header không chính xác
++ ...
++ `AWE999` Lỗi không xác định
+
+**Example**
+
+````js
+{
+    "status": "error",
+    "code": "AWE001",
+    "message": "Method Not Allowed"
+}
+````
+
+####  Requires authentication YES
+
++ Sử dụng cơ chế xác thực jwt token
+
++ Đối với các api có thông tin này, client sẽ phải truyền lên chuỗi jwt token trong header, có dạng:
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhNnZoQW8zRkc3dDEiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE0NzA1OTg5NzIsImV4cCI6MTQ3MDY4NTM3Mn0.ltA9zZmJKszBJuuV7pTWtY7LzLXrRUfebJDhy_jGMeM
+```
+
+####  Prefix
+
++ Đường dẫn của tất cả API đều phải truyền prefix /api/v1
+
++ Ví dụ:
+```
+http://api.amela.crm.stg6.amelacorp.com/api/v1/projects
+```

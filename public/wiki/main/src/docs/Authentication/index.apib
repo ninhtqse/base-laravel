@@ -1,0 +1,168 @@
+# Group Authentication
+
+## Đăng nhập tài khoản [POST /login]
+
+**Endpoint information**
+
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | No |
+
++ Request (application/json; charset=UTF-8)
+	+ Headers
+	    Accept: application/json; charset=UTF-8
+    + Body
+    {
+        "email": "ninhtqse@gmail.com",
+        "password": "123456"
+    }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {
+                "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNWQxOTE3MDU1Yzk4YTA2MjAxNzkwOWRmMTg4MTM2ZGZiNTdkOTUwNTYwMzg1NDcyZjA3YzE4MDc5MmM5ODdmZTFjZjI2OGQwNDRiOWFiMzMiLCJpYXQiOjE2NjA3Mjk5NTEuMDA4OTQ2LCJuYmYiOjE2NjA3Mjk5NTEuMDA4OTUxLCJleHAiOjE2NjA5NDU5NTAuODg2MjE0LCJzdWIiOiIxNzRkMTY1Yi1iOTBkLTQ3NjMtYTIyNy1hOWM0NzUwMTllMmYiLCJzY29wZXMiOltdfQ.Xhtfr6tWky8gXRTtPmFecVWu9W0MLf_XXgh8qb3z3jm3inavi66Nw4-xkjtAVMiSixmn_4sma3vDI7tn1OVBUMOJc6o-DM1g8G-0kbpj0UFRR2qvaIe7ZKsR1-YtNhQzlFjWlyUhfR1hs9iEqLqkeryH2l_SkuFgoKOQT7x7P3zbH-8BKQXT861_judSzMOzfiibah7dRuR7I91_7Kvr9LSAF-acDRnYQ7cG_0zjiU22KPA4BuM3TkAtThIv1zmFzhcQRacNfseDNRacb-KgcdIXSQjQkrhJd4PDDt_Gl0YeGRx-iVMwCIWglxXSZdwfIfjUyOaqzWadWjwCYYNHFBv3ffmxhIKsZsfr7XGJ5q9dczzktx65uMgac6QTwZa37qsGOMq7GexvhY2UXW6fxdSoXgwbzHy7B453bqa4hoo892YJaYD1JPNP6xpFhkHrorDWQCvikO1-7nye6lrSSNaeuK-LA42D2dSfZXcbYcJZPPNrXjExEu6PgeI-Gja-meGlrxcOQfD9JcwmfHGp8Xtxuq4AYTtwH6n0xSi_Q4aqYhhP1jOWSoKWCh64Y1z5f-Vtm3BMvF2BHm-kIKKp5FLGCi8Y91SMU3ze3QnPxV8TPq_uAfO649IPtrSwMsNmZLTJWTyGtcPiQjTWImEL0AXHhnonNSGcJRfqhmt3f6I",
+                "expires_in": 216000,
+                "refresh_token": "def502007c89bfcd2298feb08d2543aa37e0d9cde6edd067a3f7a79f2ae5dfee9b7886c2843c86b8755f04561ba0c485ff6602b0288bb962e7b694a8aca111c06b0bcf14e701d8e14d755c4328778746c530682e1a20d25bbb9852576e9ee427cc0413a3cb20a0938b284c5966ab46b63f9867413ac01d88a55f47106490abda91634ae7ec017a515181928096cb0dd9d95f04692430520d3fb4ee67644113d6658bcbefde5abccbb5ebefa871d14bf6bb64ddc60812e5addca9a52d19f040011364e9272db60d35cfc7646e7ecfe3b735aa783fd478a37a30655a5d843824eaf8111ccfa080dd39aa0470963795f7b561aef79f3155d967279c6a5fb874a4be304db10309c98da3b4f4f8d6fcb0b073b74496358f6ec6003d3cb99ae77c874d637ebe1e698ce4e2376ac4376d25450cb999ad8d789be2cc5d7e7e3ba921b90512b1cbff50226241e8177f8201b83d20678f54eb7455a045a2110950290b5e1547c953530758e43eefbe284f8679f3d057469effc2b24bc1700343f80c84669428342a24eaf4",
+                "user": {
+                    "id": "769a49f1-b55a-4e5e-a8cf-0b5b634243e6",
+                    "name": "ninhtq1",
+                    "avatar": "http://api-amela-crm.local:81/storage/uploads/users/2022/08/31/2e9cafaa-a76b-4fa5-a4c7-10fd4c3f2389_avatar.jpg",
+                    "email": "ninhtqse@gmail.com",
+                    "parent_id": null,
+                    "type": null,
+                    "created_at": "2022-08-31T01:35:39.000000Z",
+                    "updated_at": "2022-08-31T02:12:06.000000Z"
+                },
+                "version":"1"
+            }
+        }
+
+
+
+## Refresh token [POST /login/refresh]
+
+Lấy lại token mới
+
+**Endpoint information**
+
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | No |
+
++ Request (application/json; charset=UTF-8)
+    + Headers
+        Accept: application/json; charset=UTF-8
+    + Body
+        {
+            "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....",
+        }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {
+                "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNWQxOTE3MDU1Yzk4YTA2MjAxNzkwOWRmMTg4MTM2ZGZiNTdkOTUwNTYwMzg1NDcyZjA3YzE4MDc5MmM5ODdmZTFjZjI2OGQwNDRiOWFiMzMiLCJpYXQiOjE2NjA3Mjk5NTEuMDA4OTQ2LCJuYmYiOjE2NjA3Mjk5NTEuMDA4OTUxLCJleHAiOjE2NjA5NDU5NTAuODg2MjE0LCJzdWIiOiIxNzRkMTY1Yi1iOTBkLTQ3NjMtYTIyNy1hOWM0NzUwMTllMmYiLCJzY29wZXMiOltdfQ.Xhtfr6tWky8gXRTtPmFecVWu9W0MLf_XXgh8qb3z3jm3inavi66Nw4-xkjtAVMiSixmn_4sma3vDI7tn1OVBUMOJc6o-DM1g8G-0kbpj0UFRR2qvaIe7ZKsR1-YtNhQzlFjWlyUhfR1hs9iEqLqkeryH2l_SkuFgoKOQT7x7P3zbH-8BKQXT861_judSzMOzfiibah7dRuR7I91_7Kvr9LSAF-acDRnYQ7cG_0zjiU22KPA4BuM3TkAtThIv1zmFzhcQRacNfseDNRacb-KgcdIXSQjQkrhJd4PDDt_Gl0YeGRx-iVMwCIWglxXSZdwfIfjUyOaqzWadWjwCYYNHFBv3ffmxhIKsZsfr7XGJ5q9dczzktx65uMgac6QTwZa37qsGOMq7GexvhY2UXW6fxdSoXgwbzHy7B453bqa4hoo892YJaYD1JPNP6xpFhkHrorDWQCvikO1-7nye6lrSSNaeuK-LA42D2dSfZXcbYcJZPPNrXjExEu6PgeI-Gja-meGlrxcOQfD9JcwmfHGp8Xtxuq4AYTtwH6n0xSi_Q4aqYhhP1jOWSoKWCh64Y1z5f-Vtm3BMvF2BHm-kIKKp5FLGCi8Y91SMU3ze3QnPxV8TPq_uAfO649IPtrSwMsNmZLTJWTyGtcPiQjTWImEL0AXHhnonNSGcJRfqhmt3f6I",
+                "expires_in": 216000,
+                "refresh_token": "def502007c89bfcd2298feb08d2543aa37e0d9cde6edd067a3f7a79f2ae5dfee9b7886c2843c86b8755f04561ba0c485ff6602b0288bb962e7b694a8aca111c06b0bcf14e701d8e14d755c4328778746c530682e1a20d25bbb9852576e9ee427cc0413a3cb20a0938b284c5966ab46b63f9867413ac01d88a55f47106490abda91634ae7ec017a515181928096cb0dd9d95f04692430520d3fb4ee67644113d6658bcbefde5abccbb5ebefa871d14bf6bb64ddc60812e5addca9a52d19f040011364e9272db60d35cfc7646e7ecfe3b735aa783fd478a37a30655a5d843824eaf8111ccfa080dd39aa0470963795f7b561aef79f3155d967279c6a5fb874a4be304db10309c98da3b4f4f8d6fcb0b073b74496358f6ec6003d3cb99ae77c874d637ebe1e698ce4e2376ac4376d25450cb999ad8d789be2cc5d7e7e3ba921b90512b1cbff50226241e8177f8201b83d20678f54eb7455a045a2110950290b5e1547c953530758e43eefbe284f8679f3d057469effc2b24bc1700343f80c84669428342a24eaf4",
+            }
+        }
+
+
+## Đăng xuất [GET /logout]
+
+đăng xuất tài khoản
+
+**Endpoint information**
+
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | yes |
+
++ Request (application/json; charset=UTF-8)
+    + Headers
+        Accept: application/json; charset=UTF-8
+        Authorization: JWT <token>
+        TaxCode: mã số thuế đơn vị
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {}
+        }
+
+## Forgot password [POST /forgot-password]
+
+**Authen**
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | no |
+
++ Request (application/json; charset=UTF-8)
+    + Headers
+        accept: application/json; charset=UTF-8
+        lang: vi
+    
+    + Body
+    {
+        "email":"hatranga4k49kc@gmail.com"
+    }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {}
+        }
+
+## Reset password [POST /reset-password]
+
+**Authen**
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | no |
+
++ Request (application/json; charset=UTF-8)
+    + Headers
+        accept: application/json; charset=UTF-8
+        lang: vi
+    + Body
+    {
+        "token": `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....` (string, required),
+        "password":"123456"
+    }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {}
+        }
+
+
+## Change password [POST /change-password]
+
+**Authen**
+|                         |     |
+|-------------------------|-----|
+| Requires authentication | yes |
+
++ Request (application/json; charset=UTF-8)
+    + Headers
+        accept: application/json; charset=UTF-8
+        lang: vi
+    + Body
+    {
+        "password_old": "password@123",
+        "password_new":"123456"
+    }
++ Response 200 (application/json)
+    + Body
+        {
+            "status": "success",
+            "code": "AWS001",
+            "data": {}
+        }

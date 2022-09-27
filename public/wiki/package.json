@@ -1,0 +1,14 @@
+{
+  "name": "wiki.ebhxh.v3",
+  "version": "3.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main/src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aglio": "^2.3.0"
+  }
+}
