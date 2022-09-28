@@ -21,5 +21,6 @@ return [
 
     'view_folder_name' => 'views',
 
-    'prefix' => ''
+    'prefix_web' => '/',
+    'prefix_api' => '/api/v1'
 ];

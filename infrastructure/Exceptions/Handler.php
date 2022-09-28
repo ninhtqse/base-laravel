@@ -55,6 +55,7 @@ class Handler extends ExceptionHandler
     }
 
     protected function renderException($request, $exception) {
+        dd($exception);
         if($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             return \redirect('/errors/404');
         }else if($exception instanceof \Illuminate\Validation\ValidationException){

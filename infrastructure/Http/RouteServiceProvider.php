@@ -31,8 +31,10 @@ class RouteServiceProvider extends ServiceProvider
         
         foreach ($highLevelParts as $part => $partComponents) {
             $custom = $middleware;
+            $prefix = $config['prefix_api'];
             if($part == 'App'){
                 $custom = 'auth:web';
+                $prefix = $config['prefix_web'];
             }
             foreach ($partComponents as $componentRoot) {
                 $component = substr($componentRoot, strrpos($componentRoot, DIRECTORY_SEPARATOR) + 1);
@@ -60,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
                     $router->group([
                         'middleware' => ($protected === 2) ? $custom : ($protected === 1 ? $basicMiddleware : []),
                         'namespace'  => $namespace,
-                        'prefix'     => $config['prefix'],
+                        'prefix'     => $prefix,
                     ], function ($router) use ($path) {
                         require $path;
                     });

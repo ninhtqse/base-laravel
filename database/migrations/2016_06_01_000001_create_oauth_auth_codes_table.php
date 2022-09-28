@@ -14,7 +14,7 @@ class CreateOauthAuthCodesTable extends Migration
     public function up()
     {
         Schema::create('oauth_auth_codes', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->bigInteger('user_id')->index();
             $table->unsignedBigInteger('client_id');
             $table->text('scopes')->nullable();

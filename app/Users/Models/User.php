@@ -3,7 +3,6 @@
 namespace App\Users\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +12,6 @@ class User extends Authenticatable
 {
     use HasRoles;
     use Notifiable;
-    use SoftDeletes;
     use HasApiTokens;
 
     protected $guard_name = 'api';
@@ -36,6 +34,7 @@ class User extends Authenticatable
      */
     public function findForPassport($id)
     {
+        dd(123123);
         return $this->where('id', $id)->first();
     }
 

@@ -65,6 +65,7 @@ class LoginProxy
             'grant_type'    => $grantType
         ]);
         $response = $this->apiConsumer->post('/oauth/token', $data);
+        dd($response);
 
         if (!$response->isSuccessful()) {
             throw new Exception\GeneralException('AWE005');

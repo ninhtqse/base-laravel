@@ -35,17 +35,13 @@ class AuthService
         if (!$user) {
             throw new IncException\GeneralException('AWE005');
         }
-        DB::beginTransaction();
         try {
             // đăng nhập
             $data   = $this->loginProxy->attemptLogin($user->id, $password);
-            DB::commit();
         } catch (\Exception $e) {
-            DB::rollBack();
             throw $e;
         }
         $data['user'] = $user;
-        $data['version'] = version_seeder();
         return $data;
     }
 
