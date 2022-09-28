@@ -28,7 +28,6 @@ class RouteServiceProvider extends ServiceProvider
         $highLevelParts = array_map(function ($namespace) {
             return glob(sprintf('%s%s*', $namespace, DIRECTORY_SEPARATOR), GLOB_ONLYDIR);
         }, $config['namespaces']);
-        
         foreach ($highLevelParts as $part => $partComponents) {
             $custom = $middleware;
             $prefix = $config['prefix_api'];

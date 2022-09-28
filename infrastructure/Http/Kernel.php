@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
         \Infrastructure\Http\Middleware\Locale::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Infrastructure\Http\Middleware\Adapter::class,
     ];
 
     /**

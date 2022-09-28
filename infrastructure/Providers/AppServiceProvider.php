@@ -3,6 +3,7 @@
 namespace Infrastructure\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Infrastructure\Libraries\Adapter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
         }
         // không chạy migration mặc định trong passport
         \Laravel\Passport\Passport::ignoreMigrations();
+
+        $this->app->singleton('Adapter', function ($app) {
+            return new Adapter;
+        });
     }
 }

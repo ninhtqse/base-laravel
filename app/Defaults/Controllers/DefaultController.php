@@ -6,6 +6,7 @@ class DefaultController{
 
     public function index()
     {
-        return view('welcome');
+        $default = 'Welcome';
+        return view('welcome', compact('default'));
     }
 }
