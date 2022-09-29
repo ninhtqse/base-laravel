@@ -123,7 +123,7 @@ class Response
             case 'AWE007':
                 $code = 404;
                 break;
-            case 'AWE013':
+            case 'AWE012':
                 $code = 403;
                 break;
             case 'AWE005':
@@ -132,7 +132,7 @@ class Response
             case 'AWE001':
                 $code = 405;
                 break;
-            case 'AWE014':
+            case 'AWE013':
                 $code = 415;
                 break;
             case 'AWE015':

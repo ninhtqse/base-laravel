@@ -2,6 +2,8 @@
 
 namespace App\Defaults\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class DefaultController{
 
     public function index()

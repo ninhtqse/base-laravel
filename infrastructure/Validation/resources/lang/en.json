@@ -1,3 +1,26 @@
 {
-	"Thành công": "Thành công"
+    "success": "Thành công",
+    "get_all_success": "Lấy dữ liệu thành công",
+    "update_success": "Cập nhật thành công",
+    "get_one_success": "Lấy dữ liệu 1 bản ghi thành công",
+    "delete_success": "Xóa thành công",
+    "import_success": "Import thành công",
+    "method_not_allowed": "Phương pháp không được phép",
+    "no_endpoint": "Method Not Allowed",
+    "error_sql": "Lỗi cập nhật CSDL",
+    "request_data_not_valid: $1": "Dữ liệu đầu vào không hợp lệ: $1",
+    "info_verify_not_valid": "Thông tin xác thực không chính xác",
+    "info_header_not_valid": "Thông tin Header không chính xác",
+    "resource_not_valid": "Tài nguyên không tồn tại",
+    "an_unknown_error": "Một lỗi không xác định",
+    "invalid_user_email": "Email không tồn tại",
+    "token_has_expired": "Token đã hết hạn",
+    "email": "Email",
+    "token": "Token",
+    "not_permission": "Không có quyền sử dụng tính năng này",
+    "content_type_not_support": "Loại Content-Type không được hỗ trợ",
+    "accept_not_support": "Loại Accept không được hỗ trợ",
+    "email_already_exists": "Email đã tồn tại",
+    "invalid_engineer": "Kỹ sư không tồn tại",
+    "info_account_incorrect":"Thông tin tài khoản không chính xác"
 }

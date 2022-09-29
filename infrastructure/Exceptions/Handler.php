@@ -89,11 +89,7 @@ class Handler extends ExceptionHandler
                 $message = $response->renderError('AWE010', null, null, $exception->getMessage());
             } elseif ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
                 $message = $response->renderError('AWE007', null, null, $exception->getMessage());
-            } elseif ($exception instanceof \Illuminate\Auth\Access\AuthorizationException){
-                $message = $response->renderError('AWE013', null, null, $exception->getMessage());
-            }elseif ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException){
-                $message = $response->renderError('AWE013', null, null, $exception->getMessage());
-            } else {
+            }else {
                 $file = $exception->getFile();
                 $line = $exception->getLine();
                 $message = $exception->getMessage();

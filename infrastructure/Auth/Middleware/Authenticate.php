@@ -3,6 +3,7 @@
 namespace Infrastructure\Auth\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class Authenticate
 {
@@ -14,6 +15,10 @@ class Authenticate
      */
     public function handle($request, Closure $next, $scopesString = null)
     {
-        return $next($request);
+        if(Auth::check()){
+            return $next($request);
+        }else{
+            return redirect(constants('uri.login'));
+        }
     }
 }

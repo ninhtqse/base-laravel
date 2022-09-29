@@ -1,4 +1,29 @@
 {
-    "success": {},
-    "error": {}
+    "success": {
+        "AWS001": "success",
+        "AWS002": "get_all_success",
+        "AWS003": "update_success",
+        "AWS004": "get_one_success",
+        "AWS005": "create_success",
+        "AWS006": "delete_success",
+        "AWS007": "import_success"
+    },
+    "error": {
+        "AWE001": "method_not_allowed",
+        "AWE002": "no_endpoint",
+        "AWE003": "error_sql",
+        "AWE004": "request_data_not_valid: $1",
+        "AWE005": "info_verify_not_valid",
+        "AWE006": "info_header_not_valid",
+        "AWE007": "resource_not_valid",
+        "AWE008": "invalid_user_email",
+        "AWE009": "token_has_expired",
+        "AWE010": "token_error",
+        "AWE011": "password_incorrect",
+        "AWE012": "not_permission",
+        "AWE013": "content_type_not_support",
+        "AWE014": "accept_not_support",
+        "AWE015": "request_large",
+        "AWE999": "an_unknown_error"
+    }
 }

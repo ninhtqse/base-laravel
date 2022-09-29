@@ -179,8 +179,7 @@ return [
         Ninhtqse\Api\System\TranslationServiceProvider::class,
         Ninhtqse\Api\System\ViewServiceProvider::class,
         Ninhtqse\ApiConsumer\Provider\LaravelServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class
     ],
 
     /*

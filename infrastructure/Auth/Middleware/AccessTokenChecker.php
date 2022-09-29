@@ -62,10 +62,10 @@ class AccessTokenChecker
             $headers     = request()->header();
             $type_header = \Config('config.header_default_api');
             if (@$headers['accept'][0] != $type_header) {
-                throw new Exception\GeneralException('AWE015');
+                throw new Exception\GeneralException('AWE014');
             }
             if (@$headers['content-type'][0] != $type_header) {
-                throw new Exception\GeneralException('AWE014');
+                throw new Exception\GeneralException('AWE013');
             }
         }
     }

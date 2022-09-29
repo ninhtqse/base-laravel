@@ -18,7 +18,7 @@ class Mail
             $response = $gird->build();
             if ($response->statusCode() == 413) {
                 Log::error('send mail error: 413 Request Entity Too Large = ' . $arrParams['email']);
-                throw new IncException\GeneralException('AWE020');
+                throw new IncException\GeneralException('AWE015');
             } elseif ($response->statusCode() == 202) {
                 Log::error('send mail success: ' . $arrParams['email']);
             } else {
